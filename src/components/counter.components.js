@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
-
+import React from 'react';
+import useCounter from '../hooks/useCounter';
 const COUNTER_INITIAL_STATE = 0;
 
 function Counter() {
-  const [counterValue, setCounterValue] = useState(COUNTER_INITIAL_STATE);
-
-  const handleIncrement = () => setCounterValue(prevState => prevState + 1);
-  const handleDecrement = () => setCounterValue(prevState => prevState - 1);
-  const handleReset = () => setCounterValue(COUNTER_INITIAL_STATE);
+  const { counterValue, handleIncrement, handleDecrement, handleReset } = useCounter(COUNTER_INITIAL_STATE);
 
   return (
     <div>

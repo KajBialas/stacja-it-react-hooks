@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import useFetch from '../hooks/useFetch';
 
 const API = 'https://jsonplaceholder.typicode.com/posts';
 
 function PostList() {
-  const [ postList, setPostList ] = useState([]);
+  const { data } = useFetch(API, []);
 
-  useEffect(() => {
-    fetch(API)
-      .then(response => response.json())
-      .then(response => setPostList(response));
-  }, []);
-
-  const renderPostList = () => postList.map(postElement => <div key={postElement.id}>{postElement.title}</div>);
+  const renderPostList = () => data.map(postElement => <div key={postElement.id}>{postElement.title}</div>);
 
   return (
     <div>
