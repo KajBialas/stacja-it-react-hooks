@@ -5,9 +5,7 @@ const COUNTER_INITIAL_STATE = 0;
 function Counter() {
   const [counterValue, setCounterValue] = useState(COUNTER_INITIAL_STATE);
 
-  // const handleIncrement = () => setCounterValue(counterValue + 1);
   const handleIncrement = () => setCounterValue(prevState => prevState + 1);
-  // const handleDecrement = () => setCounterValue(counterValue - 1);
   const handleDecrement = () => setCounterValue(prevState => prevState - 1);
   const handleReset = () => setCounterValue(COUNTER_INITIAL_STATE);
 
